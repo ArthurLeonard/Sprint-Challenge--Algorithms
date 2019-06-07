@@ -96,11 +96,10 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        i = 0
-
+            # if no smaller numbers are encountered to the right light is set to on and we are done
         while not self.light_is_on():
             self.set_light_on()
-            i += 1
+            
             # pick up number in 0th position
             self.swap_item()
 
@@ -111,7 +110,7 @@ class SortingRobot:
 
                 if self.compare_item() == 1:   # if num in hand > num in array pick up the smaller num to place left
                     self.swap_item()
-                    self.set_light_off()
+                    self.set_light_off()        # If light is never set off during a run array is ordered 
 
                 self.move_left()
                 self.swap_item()
@@ -125,7 +124,7 @@ class SortingRobot:
             while self.can_move_left():
                 self.move_left()
 
-        print(self._position, self._item)
+       
 
 
 if __name__ == "__main__":
